@@ -13,7 +13,7 @@ package acc_proc_programs is
       to_uint16((add,  9)),   --  4
       to_uint16((brnz, 1)),   --  5
       to_uint16((stop, 0)),   --  6
-      +2,                     --  7
+      +8,                     --  7
       +1,                     --  8
       int16_to_uint16(-1),    --  9
       others => 0
@@ -22,6 +22,16 @@ package acc_proc_programs is
    -- Programme utilise pour Q2
    constant program_1 : memtype := (
       -- ajouter votre programme ici, une ligne par instruction
+      to_uint16((ld,  == 2)) -- 0
+
+      to_uint16((adda,    == 1)) --2
+      to_uint16((adda,   ACC-2)) --3
+      to_uint16((adda,   ACC-1)) --3
+      
+      to_uint16((adda,    == 1)) --2
+      to_uint16((adda,   ACC-1)) --3
+
+
       to_uint16((stop, 0)),    --  FIN 
       +1,                      -- S(0)
       +2,                      -- S(1)

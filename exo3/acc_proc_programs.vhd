@@ -22,25 +22,33 @@ package acc_proc_programs is
    -- Programme utilise pour Q2
    constant program_1 : memtype := (
       -- ajouter votre programme ici, une ligne par instruction
-      to_uint16((lda, 13)), -- 0
+      to_uint16((lda, 16)), -- 0
       
-      to_uint16((ld, 12)), --1
+      to_uint16((ld, 17)), --1
       to_uint16((addx, 00)), --2
-      to_uint16((suba, 12)), --3
+
+      to_uint16((adda, 17)), --3
       to_uint16((addx, 00)), --4
-      to_uint16((suba, 12)),
-      to_uint16((sti, 00)),
+      to_uint16((adda, 17)), --5
+      to_uint16((sti, 00)), --6
 
-      int16_to_uint16((sub, 11)), --5
-      to_uint16((brz, 10)), --6
-      to_uint16((add, 11)), --7
-      to_uint16((add, 12)), --8
-      to_uint16((br, 1)), --9
+      to_uint16((sta, 16)), --7
+      to_uint16((ld, 16)), --8
+      to_uint16((sub, 15)), --9
 
-      to_uint16((stop, 0)),    --10  FIN 
-      +11,                     --11
-      +2,                      --12 S(0)
-      +1,                      --13 S(1)
+      to_uint16((brz, 14)), --10
+      to_uint16((suba, 17)), --11
+      to_uint16((sta, 16)), --12
+      to_uint16((br, 0)), --13
+      to_uint16((stop, 0)), --14  FIN 
+
+      +22,                    --15  addresse memoie de depart = 17, nombre de termes de la suite a calculer = 5, 17 + 5 = 22
+      +17,                     --16
+      +1,                      --17 S(0)
+      +2,                      --18 S(1)
+      --Le programme prend autant de lignes que la version sans utiliser des boucles et de registre MA,
+      --cependant, si on voulait trouver les 10, 20 ou 100 premieres valeures de la suite, on aurait simplement a
+      --changer la valeure stockee a la ligne 15.
       others => 0
    );
    

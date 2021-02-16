@@ -25,7 +25,7 @@ echo "Elaborating testbench UNIT"
 ghdl -e acc_proc_tb
 
 echo "Running simulation"
-ghdl -r acc_proc_tb --wave=new.ghw --stop-time=1300ns 
+ghdl -r acc_proc_tb --wave=new.ghw --stop-time=2000ns 
 
 echo "Cleaning files"
 ghdl --clean
